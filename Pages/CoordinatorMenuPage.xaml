@@ -1,0 +1,40 @@
+﻿<Page x:Class="DMgit.Pages.CoordinatorMenuPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DMgit.Pages"
+        mc:Ignorable="d"
+        Title="CoordinatorMenuPage" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+
+
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontFamily="Arial" FontWeight="Bold" Foreground="#FFB4B4B4" Margin="222,24,358,355">
+           Подробная информация
+        </TextBlock>
+        <TextBlock Grid.Row="0" IsEnabled="False" Padding="100,10,5,10" Style="{DynamicResource text_block}" TextAlignment="Left">
+             <Run FontSize="26"  FontWeight="Bold"  >MARATHON SKILLS 2020</Run>
+        </TextBlock>
+        <Button x:Name="btnBack" Style="{DynamicResource base_button}" Width="80" Height="30" HorizontalAlignment="Left" Grid.Row="0" Margin="10,5,5,5" Content="Назад" Click="BtnBack_Click" />
+        <Button x:Name="Logout" Style="{DynamicResource base_button}" Width="80" Height="30" HorizontalAlignment="Left" Grid.Row="0" Margin="577,9,0,11" Content="Logout" Click="BtnLogout_Click" />
+        <Button Style="{DynamicResource base_button}" Height="Auto"  Grid.Row="1" Grid.Column="0" Content="Бегуны" FontStyle="Italic" FontSize="20" Margin="44,68,485,279">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Style="{DynamicResource base_button}" Height="Auto"  Grid.Row="1" Grid.Column="0" Content="Спонсор" FontStyle="Italic" FontSize="20" Margin="376,68,154,279">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Page>

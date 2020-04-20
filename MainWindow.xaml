@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DMgit"
         mc:Ignorable="d" 
-        Title="MainWindow" Height="600" Width="800">
+  Title="{Binding Path=Content.Title, ElementName=mainFrame}"
+Height="540"  Style="{DynamicResource base_window}">
     <Grid>
-         
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        
+        <Frame x:Name="mainFrame" Grid.Row="0" NavigationUIVisibility="Hidden">
+        </Frame>
+        <TextBlock x:Name="tbTimeLeft" Grid.Row="1" TextWrapping="Wrap" Style="{DynamicResource text_block}">
+        </TextBlock>
     </Grid>
 </Window>
