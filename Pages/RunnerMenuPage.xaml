@@ -37,11 +37,6 @@
             </Button.Resources>
         </Button>
         <Button Style="{DynamicResource base_button}" Height="Auto"  Grid.Row="1" Grid.Column="0" FontStyle="Italic" FontSize="20"  Margin="44,164,485,183">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
             <Button Style="{DynamicResource base_button}" Height="53" Content="Редактирование профиля" FontStyle="Italic" FontSize="20" Width="271">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
@@ -57,12 +52,34 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Style="{DynamicResource base_button}" Height="Auto"  Grid.Row="1" Grid.Column="0" Content="Контакты" FontStyle="Italic" FontSize="20" Margin="45,252,485,95">
+        <Button Style="{DynamicResource base_button}" Height="Auto"  Grid.Row="1" Grid.Column="0" Content="Контакты" FontStyle="Italic" FontSize="20" Margin="45,252,485,95" Click="Button_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
         </Button>
+
+        <Popup x:Name="popupContacts" StaysOpen="True" Placement="Center" Width="500" 
+               PopupAnimation="Scroll" AllowsTransparency="True" Height="300" Closed="popupContacts_Closed">
+            <Border BorderBrush="LightBlue" BorderThickness="2" Background="White">
+                <StackPanel>
+                    <Button x:Name="lblClose" Foreground="Red" Width="20" Height="20" Content="x" HorizontalAlignment="Right" Margin="10" Click="LblClose_Click" BorderBrush="White"/>
+
+                    <TextBlock Text="Контакты" HorizontalAlignment="Center" Margin="0, 20" VerticalAlignment="Top"  Foreground="{DynamicResource dark_grey}" FontSize="20" FontWeight="Bold"/>
+                    <TextBlock Text="Для получения дополнительной информации пожалуйста свяжитесь с координатором" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Top"   Foreground="#FF505050" FontSize="16" FontFamily="Arial"/>
+                    <TextBlock Padding="20">
+                <Run  Foreground="#FF505050" FontSize="16" FontFamily="Arial" FontWeight="Black" >Телефон:</Run>
+                <Run  Foreground="#FF505050" FontSize="16" FontFamily="Arial" >+55 11 9988 7766</Run>
+                    </TextBlock>
+                    <TextBlock Margin="20">
+                <Run  Foreground="#FF505050" FontSize="16" FontFamily="Arial" FontWeight="Black" >Email:</Run>
+                <Run  Foreground="#FF505050" FontSize="16" FontFamily="Arial" >coordinators@marathonskills.org</Run>
+                    </TextBlock>
+                </StackPanel>
+            </Border>
+        </Popup>
+
+
     </Grid>
 </Page>

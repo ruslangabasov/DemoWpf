@@ -16,6 +16,8 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.Sql;
+using System.Data.Entity;
+using DMgit.Model;
 
 namespace DMgit.Pages
 {
@@ -39,47 +41,86 @@ namespace DMgit.Pages
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
-            {
-                sqlConnection.Open();
-                SqlCommand sqlGetUser = new SqlCommand("Select * FROM [user] where email ='" + tbEmail.Text + "'", sqlConnection);
-                SqlDataReader reader = sqlGetUser.ExecuteReader();
-
-                if (reader.HasRows)
+                using (Marathon2020Entities1 db = new Marathon2020Entities1())
                 {
-                    reader.Read();
-                    string password = reader.GetString(1);
-                    if (password == tbPassword.Password)
+                    User user = db.User.FirstOrDefault(u => u.Email == tbEmail.Text);
+                    if (user != null)
                     {
-                        char roleId = Convert.ToChar(reader.GetValue(4));
-                        switch (roleId)
+                        if (user.Password == tbPassword.Password)
                         {
-                            case 'R':
-                                {
-                                    NavigationService.Navigate(new Uri("Pages/RunnerMenuPage.xaml", UriKind.Relative));
+                            char roleId = Convert.ToChar(user.RoleId);
+                            switch (roleId)
+                            {
+                                case 'R':
+                                    {
+                                        NavigationService.Navigate(new Uri("Pages/RunnerMenuPage.xaml", UriKind.Relative));
 
-                                    break;
-                                }
-                            case 'A':
-                                {
-                                    NavigationService.Navigate(new Uri("Pages/AdministratorMenuPage.xaml", UriKind.Relative));
+                                        break;
+                                    }
+                                case 'A':
+                                    {
+                                        NavigationService.Navigate(new Uri("Pages/AdministratorMenuPage.xaml", UriKind.Relative));
 
-                                    break;
-                                }
-                            case 'C':
-                                {
-                                    NavigationService.Navigate(new Uri("Pages/CoordinatorMenuPage.xaml", UriKind.Relative));
-                                    break;
-                                }
+                                        break;
+                                    }
+                                case 'C':
+                                    {
+                                        NavigationService.Navigate(new Uri("Pages/CoordinatorMenuPage.xaml", UriKind.Relative));
+                                        break;
+                                    }
+                            }
+
                         }
+                        else
+                            MessageBox.Show("Не верный пароль");
+
                     }
                     else
                         MessageBox.Show("Не верный логин или пароль");
-
                 }
-                else
-                    MessageBox.Show("Не верный логин или пароль");
-            }
+
+            
+           // using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+           // {
+            //    sqlConnection.Open();
+            //    SqlCommand sqlGetUser = new SqlCommand("Select * FROM [user] where email ='" + tbEmail.Text + "'", sqlConnection);
+            //    SqlDataReader reader = sqlGetUser.ExecuteReader();
+
+            //    if (reader.HasRows)
+            //    {
+            //        reader.Read();
+            //        string password = reader.GetString(1);
+            //        if (password == tbPassword.Password)
+            //        {
+            //            char roleId = Convert.ToChar(reader.GetValue(4));
+            //            switch (roleId)
+            //            {
+            //                case 'R':
+            //                    {
+            //                        NavigationService.Navigate(new Uri("Pages/RunnerMenuPage.xaml", UriKind.Relative));
+
+            //                        break;
+            //                    }
+            //                case 'A':
+            //                    {
+            //                        NavigationService.Navigate(new Uri("Pages/AdministratorMenuPage.xaml", UriKind.Relative));
+
+            //                        break;
+            //                    }
+            //                case 'C':
+            //                    {
+            //                        NavigationService.Navigate(new Uri("Pages/CoordinatorMenuPage.xaml", UriKind.Relative));
+            //                        break;
+            //                    }
+            //            }
+            //        }
+            //        else
+            //            MessageBox.Show("Не верный логин или пароль");
+
+            //    }
+            //    else
+            //        MessageBox.Show("Не верный логин или пароль");
+            //}
         }
 
     }

@@ -34,7 +34,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Grid.Row="2" Width="400" Height="70" Content="Я хочу стать спонсором бегуна" Style="{DynamicResource base_button}" >
+        <Button Grid.Row="2" Width="400" Height="70" Content="Я хочу стать спонсором бегуна" Style="{DynamicResource base_button}" Click="Button_Click_1" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>

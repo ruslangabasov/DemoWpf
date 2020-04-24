@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace DMgit.Pages
 {
@@ -26,10 +16,23 @@ namespace DMgit.Pages
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new Uri("Pages/MainPage.xaml", UriKind.Relative));
         }
 
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            popupContacts.IsOpen = true;
+        }
+        private void LblClose_Click(object sender, RoutedEventArgs e)
+        {
+            popupContacts.IsOpen = false;
+        }
+        private void popupContacts_Closed(object sender, System.EventArgs e)
         {
 
         }

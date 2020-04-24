@@ -35,9 +35,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -50,6 +59,21 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -92,12 +116,113 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\SponsorRunnerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ThankSponsorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\WindowCharityPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resourse\Dictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Charity.cs">
+      <DependentUpon>Marathon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Country.cs">
+      <DependentUpon>Marathon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Event.cs">
+      <DependentUpon>Marathon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EventType.cs">
+      <DependentUpon>Marathon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Gender.cs">
+      <DependentUpon>Marathon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Marathon.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Marathon.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Marathon.cs">
+      <DependentUpon>Marathon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Marathon.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Marathon.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Marathon1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Marathon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MarathonSkills2020.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MarathonSkills2020.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MarathonSkills2020.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MarathonSkills2020.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MarathonSkills2020.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MarathonSkills2020.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Position.cs">
+      <DependentUpon>Marathon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RaceKitOption.cs">
+      <DependentUpon>Marathon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Registration.cs">
+      <DependentUpon>Marathon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RegistrationEvent.cs">
+      <DependentUpon>Marathon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RegistrationStatu.cs" />
+    <Compile Include="Model\RegistrationStatus.cs">
+      <DependentUpon>Marathon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Role.cs">
+      <DependentUpon>Marathon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Runner.cs">
+      <DependentUpon>Marathon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Sponsorship.cs">
+      <DependentUpon>Marathon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Staff.cs">
+      <DependentUpon>Marathon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Timesheet.cs">
+      <DependentUpon>Marathon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs">
+      <DependentUpon>Marathon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Volunteer.cs">
+      <DependentUpon>Marathon.tt</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AdministratorMenuPage.xaml.cs">
       <DependentUpon>AdministratorMenuPage.xaml</DependentUpon>
     </Compile>
@@ -116,6 +241,18 @@
     <Compile Include="Pages\RunnerMenuPage.xaml.cs">
       <DependentUpon>RunnerMenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SponsorRunnerPage.xaml.cs">
+      <DependentUpon>SponsorRunnerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ThankSponsorPage.xaml.cs">
+      <DependentUpon>ThankSponsorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WindowCharityPopup.xaml.cs">
+      <DependentUpon>WindowCharityPopup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -133,6 +270,21 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Model\MarathonSkills2020.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MarathonSkills2020.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Model\Marathon.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Marathon.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\Marathon.edmx.diagram">
+      <DependentUpon>Marathon.edmx</DependentUpon>
+    </None>
+    <None Include="Model\MarathonSkills2020.edmx.diagram">
+      <DependentUpon>MarathonSkills2020.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -141,6 +293,30 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\Marathon.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Marathon.edmx</DependentUpon>
+      <LastGenOutput>Marathon.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Marathon.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Marathon.edmx</DependentUpon>
+      <LastGenOutput>Marathon1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\MarathonSkills2020.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MarathonSkills2020.Context.cs</LastGenOutput>
+      <DependentUpon>MarathonSkills2020.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\MarathonSkills2020.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MarathonSkills2020.edmx</DependentUpon>
+      <LastGenOutput>MarathonSkills2020.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -34,5 +34,10 @@ namespace DMgit.Pages
         {
             NavigationService.Navigate(new Uri("Pages/RegisterAsRunnerPage.xaml", UriKind.Relative));
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("Pages/SponsorRunnerPage.xaml", UriKind.Relative));
+        }
     }
 }
